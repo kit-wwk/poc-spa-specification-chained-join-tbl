@@ -142,3 +142,4 @@ src/test/resources/
 - No REST controllers — this is a pure persistence test
 - Keep all specs in one class
 - Every test must pass with `./mvnw test`
+- **Commit changes on every task** — after completing any task (fix, feature, refactor, doc update), stage and commit the changes before moving on

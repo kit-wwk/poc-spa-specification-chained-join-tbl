@@ -13,8 +13,7 @@ public class ASpecifications {
     public static Specification<A> hasBWithLabel(String label) {
         return (root, query, cb) -> {
             query.distinct(true);
-            Join<A, AB> abJoin = getOrCreateJoin(root, "abList", JoinType.INNER);
-            Join<AB, B> bJoin = getOrCreateJoin(abJoin, "b", JoinType.INNER);
+            Join<A, B> bJoin = root.join("abList").join("b");
             return cb.equal(bJoin.get("label"), label);
         };
     }

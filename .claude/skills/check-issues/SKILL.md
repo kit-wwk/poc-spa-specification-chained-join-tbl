@@ -22,6 +22,7 @@ Check for open issues in this repository and take action on them.
    - Read the full issue details: `gh issue view <number>`
    - Read any comments: `gh api repos/{owner}/{repo}/pulls/<number>/comments` or `gh issue view <number> --comments`
    - Assess whether the issue is actionable:
+     - **Question**: If the issue is a question about the codebase, architecture, or how something works — investigate the code, then comment on the issue with a clear, detailed answer. Reference specific files and lines where relevant.
      - **Clear bug or enhancement**: Investigate the codebase, implement a fix, run `./mvnw test` to verify, then commit and push. Comment on the issue summarizing what was done.
      - **Needs clarification**: Comment on the issue asking specific questions.
      - **Already fixed**: Comment noting it's resolved and close the issue.

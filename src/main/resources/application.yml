@@ -1,27 +1,33 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:pocdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
   jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+    show-sql: false
     hibernate:
       ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: false
   quartz:
     job-store-type: jdbc
     jdbc:
       initialize-schema: always
     properties:
-      org.quartz.scheduler.instanceName: TestScheduler
+      org.quartz.scheduler.instanceName: PocScheduler
       org.quartz.scheduler.instanceId: AUTO
       org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
       org.quartz.jobStore.isClustered: false
       org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
-      org.quartz.threadPool.threadCount: 2
+      org.quartz.threadPool.threadCount: 4
       org.quartz.threadPool.threadPriority: 5
+
+server:
+  port: 8080
+
 logging:
   level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.quartz: WARN
+    com.example.poc: DEBUG
